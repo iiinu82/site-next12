@@ -1,48 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { getMembersList } from "../_libs/microcms";
+import { MEMBERS_LIST_LIMIT } from "../_constants";
 
-const data = {
-  contents: [
-    {
-      id: "1",
-      image: {
-        url: "/img-member1.jpg",
-        width: 240,
-        height: 240,
-      },
-      name: "橘　勝俊",
-      position: "CEO",
-      profile:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestiae inventore amet aspernatur delectus aliquam veniam libero, excepturi quae neque tempore! Deserunt minus nihil praesentium modi cum, optio obcaecati porro.",
-    },
-    {
-      id: "2",
-      image: {
-        url: "/img-member2.jpg",
-        width: 240,
-        height: 240,
-      },
-      name: "田中　雅子",
-      position: "CEO",
-      profile:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestiae inventore amet aspernatur delectus aliquam veniam libero, excepturi quae neque tempore! Deserunt minus nihil praesentium modi cum, optio obcaecati porro.",
-    },
-    {
-      id: "3",
-      image: {
-        url: "/img-member3.jpg",
-        width: 240,
-        height: 240,
-      },
-      name: "後藤　公則",
-      position: "CEO",
-      profile:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestiae inventore amet aspernatur delectus aliquam veniam libero, excepturi quae neque tempore! Deserunt minus nihil praesentium modi cum, optio obcaecati porro.",
-    },
-  ],
-};
-
-export default function Page() {
+export default async function Page() {
+  const data = await getMembersList({ limit: MEMBERS_LIST_LIMIT });
   return (
     <div className={styles.container}>
       {data.contents.length === 0 ? (
