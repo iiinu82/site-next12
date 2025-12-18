@@ -1,4 +1,4 @@
-// メンバーページのレイアウト。Heroは上の背景と大文字（と日本語）。Sheetは幅だけ。childrenにはmembersの中身が入る
+// メンバーページのレイアウト。Heroは上の背景と大文字（と日本語）。Sheetは幅だけ。childrenにはpage.tsxの中身が入る
 
 import Hero from "../_components/Hero/Hero";
 import Sheet from "../_components/Sheet/Sheet";
